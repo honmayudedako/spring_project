@@ -20,25 +20,25 @@ public class AnimalsAPIController {
 		this.animalsAPIService = animalsAPIService;
 	}
 	
-	@GetMapping("animalsSerchAPI")
+	@GetMapping("animalsSearch")
 	public String animalsSearch(Model model) throws IOException {
 
 		List<AnimalsAPIData> animalsList = animalsAPIService.getAnimalsAPIData();
 
 		model.addAttribute("animalsList", animalsList);
 
-		return "animalsSerch.html";
+		return "animalsSearchAPI.html";
 
 	}
 
-	@GetMapping("animalsResultAPI")
+	@GetMapping("animalsResult")
 	public String animalDetails(@RequestParam("animals") String animals, Model model) throws IOException {
 
 		List<AnimalsAPIData> matchingAnimalsList = animalsAPIService.getSelectedAnimalsAPIData(animals);
 
 		model.addAttribute("matchingAnimalsList", matchingAnimalsList);
 
-		return "animalsResult.html";
+		return "animalsResultAPI.html";
 
 	}
 
